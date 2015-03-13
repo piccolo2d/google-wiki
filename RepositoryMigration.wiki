@@ -17,6 +17,7 @@ the following may not all be of equal importance, nor in be in any order:
   # keep closed issues
   # keep issue-revision relations
   # split into per-language repositories
+  # other tweaks as in http://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git#Subversion
 
 = Hosting =
 
