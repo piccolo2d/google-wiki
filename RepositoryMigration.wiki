@@ -35,7 +35,7 @@ ranging from
 
 == Mirrors (Inofficial) ==
 
-  # https://github.com/mro
+  # https://github.com/mro the following keep history, but drop issues. Naively via {{{$ git svn clone http://piccolo2d.googlecode.com/svn/<repo>/ -s}}}
     # https://github.com/mro/piccolo2d.site
     # https://github.com/mro/piccolo2d.java
     # https://github.com/mro/piccolo2d.net
