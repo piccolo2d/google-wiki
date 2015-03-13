@@ -1,0 +1,43 @@
+#summary Migrate repository to somewhere else
+#labels Featured
+
+the following is a quick brain.dump of mine - *please edit & comment recklessly* without asking. In case it's all versioned. Still.
+
+= Goals =
+
+the following may not all be of equal importance, nor in be in any order:
+
+  # keep history (code)
+  # keep authorship per line a.k.a. blame/praise (code)
+  # keep history (website)
+  # keep authorship per line a.k.a. blame/praise (website)
+  # clean up author names (e.g. I used at least 3 different ones during the years)
+  # keep & update wiki pages
+  # keep open issues
+  # keep closed issues
+  # keep issue-revision relations
+  # split into per-language repositories
+
+= Hosting =
+
+ranging from 
+
+  # hosted (until hoster shuts down) (e.g. github, bitbucket, source forge, etc.)
+  # hosted with option to move to self-hosting (e.g. [http://gitlab.org gitlab])
+  # self hosted ([http://fossil-scm.org/ fossil], gitlab, gitorious, ?)
+
+= SCM =
+
+  # git
+  # mercurial
+  # [http://fossil-scm.org/ fossil]
+  # ?
+
+== Mirrors (Inofficial) ==
+
+  # https://github.com/mro
+    # https://github.com/mro/piccolo2d.site
+    # https://github.com/mro/piccolo2d.java
+    # https://github.com/mro/piccolo2d.net
+    # https://github.com/mro/pocketpiccolo2d.net
+  # https://github.com/search?utf8=%E2%9C%93&q=piccolo2d
