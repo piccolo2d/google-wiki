@@ -11,7 +11,7 @@ the following may not all be of equal importance, nor in be in any order:
   # keep authorship per line a.k.a. blame/praise (code)
   # keep history (website)
   # keep authorship per line a.k.a. blame/praise (website)
-  # clean up author names (e.g. I used at least 3 different ones during the years)
+  # clean up author names (e.g. I used at least 3 different ones during the years) {{{$ svn log --xml http://piccolo2d.googlecode.com/svn/ | grep author | sort -u | perl -pe 's/.*>(.*?)<.*/$1 = /'}}}
   # keep & update wiki pages
   # keep open issues
   # keep closed issues
