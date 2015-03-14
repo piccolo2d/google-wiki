@@ -51,4 +51,4 @@ I'm confused, there's already a piccolo2d organizational account?
 
 My most important concern is that contributions make it across the migration; specifically that user ids from Google Code match up with user ids in Github.  It looks to me like that didn't work for the migration that resulted in this repo https://github.com/piccolo2d/piccolo2d.java
 
-> *@mro* ids usually won't match out-of-the-box, so we'll ask/spy round which github ids to use and map them once finally migrating. (see 'clean up author names' above). So I would recumbent to re-create the git repos. *@sam* yours look nice, how did you export svn to git?
+> *@mro* ids usually won't match out-of-the-box, so we'll ask/spy round which github ids to use and map them once finally migrating. (see 'clean up author names' above). So I would recommend to re-create the git repos. *@sam* yours look nice, how did you export svn to git?
