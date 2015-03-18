@@ -5,7 +5,7 @@ the following is a quick brain.dump of mine - *please edit & comment recklessly*
 
 = Goals =
 
-the following may not all be of equal importance, nor in be in any order:
+the following may not all be of equal importance, nor be in any order:
 
   # keep history (code)
   # keep authorship per line a.k.a. blame/praise (code)
@@ -25,7 +25,7 @@ ranging from
 
   # hosted (until hoster shuts down) (e.g. github, bitbucket, source forge, etc.)
   # hosted with option to move to self-hosting (e.g. [http://gitlab.org gitlab])
-  # self hosted ([http://fossil-scm.org/ fossil], gitlab, gitorious, ?)
+  # self hosted ([http://fossil-scm.org/ fossil], gitlab, gitolite, ?)
 
 = SCM =
 
@@ -47,8 +47,8 @@ ranging from
 
 I'm confused, there's already a piccolo2d organizational account?
 
-> *@mro* the owner was so kind to invite us into https://github.com/piccolo2d. So we could use it to migrate the code to if we want.
+> *@mro*: the owner was so kind to invite us into https://github.com/piccolo2d. So we _could_ use it to migrate the code to, if we want.
 
 My most important concern is that contributions make it across the migration; specifically that user ids from Google Code match up with user ids in Github.  It looks to me like that didn't work for the migration that resulted in this repo https://github.com/piccolo2d/piccolo2d.java
 
-> *@mro* ids usually won't match out-of-the-box, so we'll ask/spy round which github ids to use and map them once finally migrating. (see 'clean up author names' above). So I would recommend to re-create the git repos. *@sam* yours look nice, how did you export svn to git?
+> *@mro*: ids usually won't match out-of-the-box, so we'll ask/spy round which github ids to use and map them once finally migrating. (see 'clean up author names' above). So I would recommend to re-create the git repos. *@sam*, your repos look nice, how did you export svn to git? How did you manage to keep the issues?
