@@ -1,7 +1,9 @@
 #summary Migrate repository to somewhere else
 #labels Featured
 
-the following is a quick brain.dump of mine - *please edit & comment recklessly* without asking. In case it's all versioned. Still.
+Google shuts down this repo until [http://google-opensource.blogspot.com/2015/03/farewell-to-google-code.html January 25th, 2016].
+
+The following is a quick brain.dump of mine - *please edit & comment recklessly* without asking. In case it's all versioned. Still.
 
 = Goals =
 
