@@ -8,6 +8,7 @@ inkscape=/Applications/Inkscape.app/Contents/Resources/bin/inkscape
 
 $inkscape --help >/dev/null 2>&1 || { echo "Inkscape is not installed." && exit 1; }
 optipng -help >/dev/null 2>&1 || { echo "optipng is not installed." && exit 1; }
+pngquant -help >/dev/null 2>&1 || { echo "pngquant is not installed." && exit 1; }
 
 src="$(pwd)/Piccolo2D-Logo-dev.svg"
 dst_dir="$(pwd)/build"
@@ -23,7 +24,8 @@ $inkscape --export-width=800 --export-height=160 --export-png=$dst $OPTS --file=
 dst=${prefix}-600x600.png
 $inkscape --export-width=600 --export-height=600 --export-area=7:-4:115:104 --export-png=$dst $OPTS --file="$src"
 
-optipng -o 7 "$dst_dir"/*.png
+# optipng -o 7 "$dst_dir"/*.png
+pngquant "$dst_dir"/*.png
 
 # crate a clean, stripped down SVG
 
@@ -31,6 +33,8 @@ dst=${prefix}.svg
 cp "$src" "$dst"
 # http://stackoverflow.com/a/10492912
 $inkscape "$dst" \
+  --select=layer7 --verb=EditDelete \
+  --select=layer4 --verb=EditDelete \
   --select=layer3 --verb=EditDelete \
   --select=layer2 --verb=EditDelete \
   --select=layer1 --verb=EditDelete \
