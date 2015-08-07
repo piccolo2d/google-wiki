@@ -3,6 +3,16 @@
 
 Google shuts down this repo until [http://google-opensource.blogspot.com/2015/03/farewell-to-google-code.html January 25th, 2016].
 
+----------
+*!!! REMINDER !!!* Google Code will become read-only on August 25th and I guess it will remain so afterwards. That's little more than two weeks from now.
+
+As far as I see, there's NO LOSSLESS migration procedure yet due to the non-standard svn directory layout (branches/tags/trunk per sub-projects piccolo2d.java piccolo2d.net pocketpiccolo each).
+
+I wouldn't mind loosing all but java, So I may do an export to github of the java part only. Also I will not care about history nor issue tracker nor wiki pages if that takes extra effort.
+
+If anybody (YOU!) wants to see a more comprehensive migration, please don't expect anybody else to care for it. Give noise and help.
+----------
+
 The following is a quick brain.dump of mine - *please edit & comment recklessly* without asking. In case it's all versioned. Still.
 
 = Goals =
