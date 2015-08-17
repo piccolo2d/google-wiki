@@ -1,17 +1,15 @@
-#summary How to build Piccolo2D SWT on MacOSX
-
 Platform-specific build instructions:
-<wiki:toc/>
 
-= MacOSX 10.6.x, Apple JDK 1.6.x, x86_64 =
 
-The Piccolo2D build will initially fail on Intel Macs (x86_64) with MacOSX 10.6.x and Apple JDK 1.6.x due to the platform specific SWT dependency.  The failure can be resolved by editing swt/pom.xml to select the correct profile, downloading the correct version of SWT, and installing swt.jar manually into the local maven repository.
+# MacOSX 10.6.x, Apple JDK 1.6.x, x86\_64
 
-Running the SWT examples requires the {{{-XstartOnFirstThread}}} JDK command line option or the java process will hang.
+The Piccolo2D build will initially fail on Intel Macs (x86\_64) with MacOSX 10.6.x and Apple JDK 1.6.x due to the platform specific SWT dependency.  The failure can be resolved by editing swt/pom.xml to select the correct profile, downloading the correct version of SWT, and installing swt.jar manually into the local maven repository.
 
-For example, here is a complete walkthrough on MacOSX 10.6.2 with Apple JDK 1.6.0_15-b03-219.  First, diagnosis information:
+Running the SWT examples requires the `-XstartOnFirstThread` JDK command line option or the java process will hang.
 
-{{{
+For example, here is a complete walkthrough on MacOSX 10.6.2 with Apple JDK 1.6.0\_15-b03-219.  First, diagnosis information:
+
+```
 $ java -version
 java version "1.6.0_15"
 Java(TM) SE Runtime Environment (build 1.6.0_15-b03-219)
@@ -45,11 +43,11 @@ $ mvn help:active-profiles
 [INFO]   There are no active profiles.
 [INFO] Active Profiles for Project 'org.piccolo2d:piccolo2d-complete:pom:1.3-SNAPSHOT':
 [INFO]   There are no active profiles.
-}}}
+```
 
-The build will fail unit tests with the default MacOSX profile (macosx_carbon) enabled.
+The build will fail unit tests with the default MacOSX profile (macosx\_carbon) enabled.
 
-{{{
+```
 $ mvn install
 [INFO] Scanning for projects...
 [INFO] Reactor build order:
@@ -134,12 +132,12 @@ Tests run: 38, Failures: 0, Errors: 25, Skipped: 0
 [ERROR] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] There are test failures.
-}}}
+```
 
-Edit swt/pom.xml, disable the macosx_carbon profile and enable the macosx_cocoa_intel profile.  This must be done manually as maven currently does not appear to support profile activation with a combination of {{{<os>}}} and {{{<jdk>}}} settings.
+Edit swt/pom.xml, disable the macosx\_carbon profile and enable the macosx\_cocoa\_intel profile.  This must be done manually as maven currently does not appear to support profile activation with a combination of `<os>` and `<jdk>` settings.
 
-Profile macosx_carbon activated
-{{{
+Profile macosx\_carbon activated
+```
 <!--
 
     disable this profile to build on mac osx, jdk 1.6, x86_64
@@ -176,10 +174,10 @@ Profile macosx_carbon activated
       </properties>
     </profile>
 -->
-}}}
+```
 
-Profile macosx_cocoa_intel activated:
-{{{
+Profile macosx\_cocoa\_intel activated:
+```
 <!--
 
     disable this profile to build on mac osx, jdk 1.6, x86_64
@@ -216,17 +214,17 @@ Profile macosx_cocoa_intel activated:
         <swt.artifactId>macosx</swt.artifactId>
       </properties>
     </profile>
-}}}
+```
 
 Maven must also be configured to run the JDK in 64-bit mode
 
-{{{
+```
 $ export MAVEN_OPTS="-Dd64"
-}}}
+```
 
-At this point, the macosx_cocoa_intel profile should be activated
+At this point, the macosx\_cocoa\_intel profile should be activated
 
-{{{
+```
 $ mvn help:active-profiles
 [INFO] [help:active-profiles]
 [INFO] Active Profiles for Project 'org.piccolo2d:piccolo2d-parent:pom:1.3-SNAPSHOT':
@@ -244,11 +242,11 @@ $ mvn help:active-profiles
 [INFO]   There are no active profiles.
 [INFO] Active Profiles for Project 'org.piccolo2d:piccolo2d-complete:pom:1.3-SNAPSHOT':
 [INFO]   There are no active profiles.
-}}}
+```
 
 Maven will now report a missing dependency
 
-{{{
+```
 $ mvn install
 ...
 [INFO] ------------------------------------------------------------------------
@@ -268,16 +266,16 @@ No versions are present in the repository for the artifact with a range [3.3.0-v
 
 from the specified remote repositories:
  central (http://repo1.maven.org/maven2)
-}}}
+```
 
-An appropriate cocoa x86_64 version of SWT must be downloaded manually from http://www.eclipse.org/swt.  As of this writing, the latest version is
-3.5.1 and the actual download link is 
+An appropriate cocoa x86\_64 version of SWT must be downloaded manually from http://www.eclipse.org/swt.  As of this writing, the latest version is
+3.5.1 and the actual download link is
 
 http://download.eclipse.org/eclipse/downloads/drops/R-3.5.1-200909170800/download.php?dropFile=swt-3.5.1-cocoa-macosx-x86_64.zip
 
 Extract the file swt.jar from this archive and copy it to the piccolo2d-java working directory.  Then install it to the local maven repository with
 
-{{{
+```
 $ mvn install:install-file -Dfile=./swt.jar \
   -DgroupId=org.eclipse.swt.cocoa \
   -DartifactId=macosx \
@@ -303,11 +301,11 @@ $ mvn install:install-file -Dfile=./swt.jar \
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
-}}}
+```
 
 The build now succeeds.
 
-{{{
+```
 $ mvn install
 [INFO] Scanning for projects...
 [INFO] Reactor build order:
@@ -368,18 +366,18 @@ Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
-}}}
+```
 
 
-= MacOSX 10.5.x, Apple JDK 1.5.x, x86_64 =
+# MacOSX 10.5.x, Apple JDK 1.5.x, x86\_64
 
-The Piccolo2D build works fine on Intel Macs (x86_64) with MacOSX 10.5.x and Apple JDK 1.5.x.
+The Piccolo2D build works fine on Intel Macs (x86\_64) with MacOSX 10.5.x and Apple JDK 1.5.x.
 
-Running the SWT examples requires the {{{-XstartOnFirstThread}}} JDK command line option or the java process will hang.
+Running the SWT examples requires the `-XstartOnFirstThread` JDK command line option or the java process will hang.
 
-For example, here is a complete walkthrough on MacOSX 10.5.8 with Apple JDK 1.5.0_20-b02-315.  First, diagnosis information:
+For example, here is a complete walkthrough on MacOSX 10.5.8 with Apple JDK 1.5.0\_20-b02-315.  First, diagnosis information:
 
-{{{
+```
 $ java -version
 java version "1.5.0_20"
 Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_20-b02-315)
@@ -415,11 +413,11 @@ $ mvn help:active-profiles
 [INFO]   There are no active profiles.
 [INFO] Active Profiles for Project 'org.piccolo2d:piccolo2d-complete:pom:1.3-SNAPSHOT':
 [INFO]   There are no active profiles.
-}}}
+```
 
 and then the actual install:
 
-{{{
+```
 $ mvn install
 [INFO] Scanning for projects...
 [INFO] Reactor build order:
@@ -495,17 +493,17 @@ Downloading: http://repo1.maven.org/maven2/org/eclipse/swt/carbon/macosx/3.3.0-v
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
-}}}
+```
 
-= MacOSX 10.5.x, Apple JDK 1.5.x, ppc =
+# MacOSX 10.5.x, Apple JDK 1.5.x, ppc
 
 The Piccolo2D build works fine on PowerPC Macs (ppc) with MacOSX 10.5.x and Apple JDK 1.5.x.
 
-Running the SWT examples requires the {{{-XstartOnFirstThread}}} JDK command line option or the java process will hang.
+Running the SWT examples requires the `-XstartOnFirstThread` JDK command line option or the java process will hang.
 
-For example, here is a complete walkthrough on MacOSX 10.5.8 with Apple JDK 1.5.0_20-b02-315.  First, diagnosis information:
+For example, here is a complete walkthrough on MacOSX 10.5.8 with Apple JDK 1.5.0\_20-b02-315.  First, diagnosis information:
 
-{{{
+```
 $ java -version
 java version "1.5.0_20"
 Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_20-b02-315)
@@ -541,11 +539,11 @@ $ mvn help:active-profiles
 [INFO]   There are no active profiles.
 [INFO] Active Profiles for Project 'org.piccolo2d:piccolo2d-complete:pom:1.3-SNAPSHOT':
 [INFO]   There are no active profiles.
-}}}
+```
 
 and then the actual install:
 
-{{{
+```
 $ mvn install
 [INFO] Scanning for projects...
 [INFO] Reactor build order:
@@ -621,4 +619,4 @@ Downloading: http://repo1.maven.org/maven2/org/eclipse/swt/carbon/macosx/3.3.0-v
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
-}}}
+```

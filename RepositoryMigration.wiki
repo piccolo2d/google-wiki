@@ -1,9 +1,0 @@
-#summary Migrate repository to somewhere else
-#labels Featured
-
-Google shuts down this repo until [http://google-opensource.blogspot.com/2015/03/farewell-to-google-code.html January 25th, 2016].
-
-----------
-*!!! REMINDER !!!* Google Code will become read-only on August 25th and I guess it will remain so afterwards. That's little more than two weeks from now.
-
-See https://github.com/piccolo2d/google2github
